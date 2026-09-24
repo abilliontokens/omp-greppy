@@ -38,6 +38,14 @@
     "code-graph",
     "semantic-search"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abilliontokens/omp-greppy.git"
+  },
+  "homepage": "https://github.com/abilliontokens/omp-greppy#readme",
+  "bugs": {
+    "url": "https://github.com/abilliontokens/omp-greppy/issues"
+  },
   "devDependencies": {
     "@types/node": "^24.0.0",
     "typescript": "^5.9.0"
