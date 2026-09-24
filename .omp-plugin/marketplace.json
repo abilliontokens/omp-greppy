@@ -1,0 +1,19 @@
+{
+  "name": "omp-greppy",
+  "owner": {
+    "name": "abilliontokens"
+  },
+  "metadata": {
+    "description": "greppy code-graph tools for omp/pi",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "omp-greppy",
+      "version": "0.1.0",
+      "description": "Definitions, callers, impact, call chains and local semantic search from the greppy code graph.",
+      "category": "development",
+      "keywords": ["greppy", "code-graph", "callers", "semantic-search", "oh-my-pi"]
+    }
+  ]
+}

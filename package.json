@@ -1,0 +1,45 @@
+{
+  "name": "omp-greppy",
+  "version": "0.1.0",
+  "description": "greppy code-graph tools for Oh My Pi (omp) and pi: definitions, callers, impact, call chains and local semantic search, plus a per-prompt <greppy-tools> note.",
+  "type": "module",
+  "main": "./dist/extension.js",
+  "types": "./dist/extension.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/extension.d.ts",
+      "import": "./dist/extension.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"test/*.mjs\""
+  },
+  "omp": {
+    "extensions": [
+      "./dist/extension.js"
+    ]
+  },
+  "pi": {
+    "extensions": [
+      "./dist/extension.js"
+    ]
+  },
+  "keywords": [
+    "oh-my-pi",
+    "pi-coding-agent",
+    "greppy",
+    "code-graph",
+    "semantic-search"
+  ],
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}
