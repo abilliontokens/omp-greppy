@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="omp-greppy: exact code-graph answers for Oh My Pi, one tool call each" width="100%">
+</p>
+
 # omp-greppy
 
 [greppy](https://github.com/metric-space-ai/greppy) code-graph tools for

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-label="omp-greppy: exact code-graph answers for Oh My Pi, one tool call each">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#131a33"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#5eead4"/>
+    </marker>
+    <marker id="arrowDim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L10 5L0 10z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="420" rx="18" fill="url(#bg)"/>
+  <rect width="1200" height="420" rx="18" fill="url(#grid)"/>
+
+  <!-- Title block -->
+  <g font-family="ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <text x="64" y="118" font-size="64" font-weight="800" fill="url(#accent)" letter-spacing="-1">omp-greppy</text>
+    <text x="66" y="162" font-size="22" fill="#cbd5e1">Exact code-graph answers for Oh My Pi.</text>
+    <text x="66" y="192" font-size="22" fill="#94a3b8">One tool call. No grep loops. No model spend.</text>
+  </g>
+
+  <!-- Tool chips -->
+  <g font-family="ui-monospace, 'Cascadia Code', Consolas, Menlo, monospace" font-size="16">
+    <g transform="translate(64 232)">
+      <rect width="112" height="34" rx="17" fill="#5eead4" fill-opacity="0.12" stroke="#5eead4" stroke-opacity="0.5"/>
+      <text x="56" y="22" text-anchor="middle" fill="#5eead4">gsymbol</text>
+    </g>
+    <g transform="translate(186 232)">
+      <rect width="118" height="34" rx="17" fill="#5eead4" fill-opacity="0.12" stroke="#5eead4" stroke-opacity="0.5"/>
+      <text x="59" y="22" text-anchor="middle" fill="#5eead4">gcallers</text>
+    </g>
+    <g transform="translate(314 232)">
+      <rect width="108" height="34" rx="17" fill="#a78bfa" fill-opacity="0.14" stroke="#a78bfa" stroke-opacity="0.55"/>
+      <text x="54" y="22" text-anchor="middle" fill="#c4b5fd">gimpact</text>
+    </g>
+    <g transform="translate(64 276)">
+      <rect width="100" height="34" rx="17" fill="#a78bfa" fill-opacity="0.14" stroke="#a78bfa" stroke-opacity="0.55"/>
+      <text x="50" y="22" text-anchor="middle" fill="#c4b5fd">gchain</text>
+    </g>
+    <g transform="translate(174 276)">
+      <rect width="110" height="34" rx="17" fill="#5eead4" fill-opacity="0.12" stroke="#5eead4" stroke-opacity="0.5"/>
+      <text x="55" y="22" text-anchor="middle" fill="#5eead4">gsearch</text>
+    </g>
+    <g transform="translate(294 276)">
+      <rect width="96" height="34" rx="17" fill="#ffffff" fill-opacity="0.05" stroke="#64748b" stroke-opacity="0.6"/>
+      <text x="48" y="22" text-anchor="middle" fill="#cbd5e1">gbrief</text>
+    </g>
+    <g transform="translate(400 276)">
+      <rect width="84" height="34" rx="17" fill="#ffffff" fill-opacity="0.05" stroke="#64748b" stroke-opacity="0.6"/>
+      <text x="42" y="22" text-anchor="middle" fill="#cbd5e1">gread</text>
+    </g>
+  </g>
+
+  <!-- Prompt note -->
+  <g font-family="ui-monospace, 'Cascadia Code', Consolas, Menlo, monospace" font-size="15">
+    <rect x="64" y="332" width="420" height="44" rx="10" fill="#020617" fill-opacity="0.6" stroke="#334155"/>
+    <text x="82" y="359" fill="#64748b">&lt;<tspan fill="#5eead4">greppy-tools</tspan>&gt; <tspan fill="#94a3b8">injected into every prompt</tspan></text>
+  </g>
+
+  <!-- Call graph -->
+  <g font-family="ui-monospace, 'Cascadia Code', Consolas, Menlo, monospace">
+    <!-- background edges -->
+    <path d="M700 110 C 760 150, 760 200, 800 222" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowDim)"/>
+    <path d="M1060 110 C 1000 150, 990 200, 960 222" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrowDim)"/>
+    <path d="M880 290 L 880 318" fill="none" stroke="#475569" stroke-width="2"/>
+
+    <!-- highlighted impact path: main -> scale -> clampValue -->
+    <path d="M880 110 L 880 206" fill="none" stroke="#5eead4" stroke-width="3" marker-end="url(#arrow)" stroke-dasharray="8 6">
+      <animate attributeName="stroke-dashoffset" from="28" to="0" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M880 262 L 880 330" fill="none" stroke="#5eead4" stroke-width="3" marker-end="url(#arrow)" stroke-dasharray="8 6">
+      <animate attributeName="stroke-dashoffset" from="28" to="0" dur="1.2s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- nodes -->
+    <g>
+      <rect x="640" y="66" width="120" height="44" rx="12" fill="#1e293b" stroke="#475569"/>
+      <text x="700" y="94" text-anchor="middle" font-size="16" fill="#94a3b8">render()</text>
+    </g>
+    <g>
+      <rect x="820" y="66" width="120" height="44" rx="12" fill="#1e293b" stroke="#5eead4" stroke-opacity="0.8"/>
+      <text x="880" y="94" text-anchor="middle" font-size="16" fill="#e2e8f0">main()</text>
+    </g>
+    <g>
+      <rect x="1000" y="66" width="120" height="44" rx="12" fill="#1e293b" stroke="#475569"/>
+      <text x="1060" y="94" text-anchor="middle" font-size="16" fill="#94a3b8">tick()</text>
+    </g>
+    <g>
+      <rect x="810" y="218" width="140" height="44" rx="12" fill="#1e293b" stroke="#5eead4" stroke-opacity="0.8"/>
+      <text x="880" y="246" text-anchor="middle" font-size="16" fill="#e2e8f0">scale()</text>
+    </g>
+    <circle cx="880" cy="358" r="70" fill="url(#glow)"/>
+    <g>
+      <rect x="790" y="336" width="180" height="48" rx="14" fill="#0f172a" stroke="url(#accent)" stroke-width="2.5"/>
+      <text x="880" y="366" text-anchor="middle" font-size="17" font-weight="700" fill="#5eead4">clampValue()</text>
+    </g>
+
+    <!-- annotation -->
+    <text x="990" y="252" font-size="14" fill="#c4b5fd">gimpact clampValue</text>
+    <text x="990" y="274" font-size="13" fill="#64748b">4 callers · 2 hops · 1 call</text>
+  </g>
+</svg>
