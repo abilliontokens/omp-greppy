@@ -6,10 +6,6 @@ exact answers to structural questions (where a symbol is defined, who calls it,
 how far a change reaches, how A reaches B) plus local semantic search. Each
 answer takes one tool call and no model spend.
 
-It works alongside [omp-find](https://github.com/nikkoxgonzales/omp-find):
-omp-find covers files, text and fuzzy discovery, and omp-greppy covers the
-graph.
-
 ## What it adds
 
 **Tools.** Each tool runs one greppy command in the session's repository.
