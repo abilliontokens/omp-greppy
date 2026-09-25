@@ -19,7 +19,11 @@ export declare function resolveGreppyBinary(env?: Env, platform?: NodeJS.Platfor
  * toolkit install never sees the installer's `PATH` change.
  */
 export declare function resolveCudaBin(env?: Env, platform?: NodeJS.Platform, root?: string): string | undefined;
-/** Child environment: the parent's, with the CUDA `bin` prepended when missing (`null`: none). */
+/**
+ * Child environment: the parent's, with the CUDA `bin` prepended when missing
+ * (`null`: none) and `GREPPY_DEVICE=cuda` unless the caller chose a device, so
+ * a CUDA failure surfaces as an error instead of a silent CPU fallback.
+ */
 export declare function childEnv(env?: Env, cudaBin?: string | null): Env;
 export interface RunOptions {
     cwd: string;

@@ -49,8 +49,9 @@ export function registerGreppyCommands(pi, cache) {
         },
     });
     pi.registerCommand("greppy-index", {
-        description: "Build or refresh the greppy index for this repository in the background",
-        handler: async (_args, ctx) => {
+        description: "Build or refresh the greppy index in the background; `/greppy-index rebuild` deletes it and builds from scratch",
+        handler: async (args, ctx) => {
+            const rebuild = typeof args === "string" && args.trim() === "rebuild";
             const bin = resolveGreppyBinary();
             if (bin === undefined) {
                 notify(ctx, "greppy: binary not found (set GREPPY_BIN, or put greppy on PATH / ~/.local/bin)", "error");
@@ -66,11 +67,11 @@ export function registerGreppyCommands(pi, cache) {
                 return;
             }
             building.add(root);
-            notify(ctx, `greppy-index: building ${root} in the background; /greppy-status shows progress`, "info");
+            notify(ctx, `greppy-index: ${rebuild ? "rebuilding" : "building"} ${root} in the background; /greppy-status shows progress`, "info");
             // Not awaited: the graph build takes minutes on large repositories and the
             // command must return. greppy publishes snapshots atomically, so an
             // interrupted build is recovered by the next `greppy index`.
-            void runGreppy(bin, ["index"], { cwd: root, env: childEnv() }).then((result) => {
+            void runGreppy(bin, rebuild ? ["index", "rebuild"] : ["index"], { cwd: root, env: childEnv() }).then((result) => {
                 building.delete(root);
                 if (result.code === 0) {
                     cache.set(root, true);

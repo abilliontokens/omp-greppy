@@ -90,7 +90,11 @@ export function resolveCudaBin(env: Env = process.env, platform: NodeJS.Platform
   return undefined;
 }
 
-/** Child environment: the parent's, with the CUDA `bin` prepended when missing (`null`: none). */
+/**
+ * Child environment: the parent's, with the CUDA `bin` prepended when missing
+ * (`null`: none) and `GREPPY_DEVICE=cuda` unless the caller chose a device, so
+ * a CUDA failure surfaces as an error instead of a silent CPU fallback.
+ */
 export function childEnv(env: Env = process.env, cudaBin: string | null = resolveCudaBin(env) ?? null): Env {
   const out: Env = { ...env };
   if (cudaBin === null) return out;
@@ -100,6 +104,7 @@ export function childEnv(env: Env = process.env, cudaBin: string | null = resolv
   if (!entries.includes(cudaBin.toLowerCase().replace(/[\\/]+$/, ""))) {
     out[key] = current.length > 0 ? `${cudaBin};${current}` : cudaBin;
   }
+  if ((out["GREPPY_DEVICE"] ?? "").length === 0) out["GREPPY_DEVICE"] = "cuda";
   return out;
 }
 

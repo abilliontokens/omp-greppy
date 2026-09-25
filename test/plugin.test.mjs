@@ -108,6 +108,13 @@ test("CUDA bin is prepended to the child PATH once, whatever the key casing", ()
   assert.deepEqual(childEnv({ PATH: "/usr/bin" }, null), { PATH: "/usr/bin" });
 });
 
+test("with CUDA present the child asks for cuda explicitly, but a chosen device wins", () => {
+  const cuda = "C:\\CUDA\\v12.9\\bin";
+  assert.equal(childEnv({ Path: "C:\\Windows" }, cuda).GREPPY_DEVICE, "cuda");
+  assert.equal(childEnv({ Path: "C:\\Windows", GREPPY_DEVICE: "cuda:1" }, cuda).GREPPY_DEVICE, "cuda:1");
+  assert.equal(childEnv({ PATH: "/usr/bin" }, null).GREPPY_DEVICE, undefined);
+});
+
 test("GREPPY_BIN wins, and a wrong GREPPY_BIN is reported instead of silently replaced", () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), "omp-greppy-bin-"));
   const fake = path.join(dir, process.platform === "win32" ? "greppy.exe" : "greppy");
